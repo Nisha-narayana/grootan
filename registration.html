@@ -1,0 +1,99 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<style>  
+body{  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color:#1d2f45;
+  color:white;
+}  
+.container {  
+    
+        width: 400px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #0c121c;  
+        border-radius: 15px ;   
+}  
+  
+input[type=text], input[type=password],input[type=date], textarea {  
+  width: 75%;  
+  padding: 15px;  
+  margin: 5px 0 22px 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;
+  
+}  
+input[type=text]:focus, input[type=password]:focus,input[type=date]:focus, textarea:focus {  
+  background-color: rgb(247, 212, 147);  
+  outline: none;  
+}  
+div {  
+    padding: 10px 0;  
+}  
+hr {  
+  border: 1px solid #f1f1f1;  
+  margin-bottom: 25px;  
+}  
+
+.registerbtn:hover {  
+  opacity: 1;  
+}
+#log{  
+    width: 200px;
+    text-align: center;
+    height: 50px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: blue;  
+    margin-left: 125px;
+}
+</style>  
+</head>  
+<body>  
+<form role="form" onsubmit="signUp(event);"method="POST" >  
+  <div class="container">
+  
+  <center>  <h1>  Registeration Form</h1> </center>  
+  <hr>  
+  <label><b>Firstname: </b></label><br>
+<input type="text" name="fname" id="fname" placeholder= "Enter Firstname" size="15" required /><br>
+<label><b>Lastname:</b></label>  <br>
+<input type="text" placeholder="Enter Last Name" name="lname" id="lname" required/>  <br>
+<label> <b>Age:</b> </label>   <br> 
+<input type="text" name="age" id="age" placeholder="Enter Age" size="15"required />  <br> 
+<label><b>Date of Birth:</b> </label> <br>
+<input type="date" placeholder="Enter Date of Birth" name="DOB" size="15" id="DOB" required/> <br>
+<label>   <b>Phone :</b>  <br></label>    
+<input type="text" name="phone" id="phone" placeholder="Enter phone no." size="10" required/><br>
+<b>Current Address :</b><br><textarea cols="80" rows="5" placeholder="Enter Address" id="address" name="address" required>  
+</textarea><br>
+<label for="psw"><b>Password:</b></label>  <br>
+<input type="password" placeholder="Enter Password" name="psw" id="psw" required>  <br>
+ 
+<input type="button" name="log" id="log" value="Register">  
+</div>
+</form>  
+<script type="text/javascript">
+  const signUp=e=>{
+    let formData={
+      fname:document.getElementById('fname').value,
+      lname:document.getElementById('lname').value,
+      age:document.getElementById('age').value,
+      dob:document.getElementById('DOB').value,
+      phone:document.getElementById('phone').value,
+      address:document.getElementById('address').value,
+      pwd:document.getElementById('psw').value,
+    }
+    localStorage.setItem('formData',JSON.stringify(formData));
+    console.log(localStorage.getItem('formData'));
+    e.preventDefault();
+  }
+</script>
+</body>  
+</html> 
